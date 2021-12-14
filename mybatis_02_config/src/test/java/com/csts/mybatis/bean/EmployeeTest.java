@@ -14,30 +14,13 @@ import java.io.InputStream;
 public class EmployeeTest {
 
     public SqlSessionFactory getSqlSessionFactory() throws IOException {
-        String resource = "com/csts/mybatis/conf/mybatis-config.xml";
+        String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory =
                 new SqlSessionFactoryBuilder().build(inputStream);
         return sqlSessionFactory;
     }
 
-    // 1. 原版本
-    @Test
-    public void EmployeeTest1() throws IOException {
-        // 1. 获取sqlSessionFactory对象
-        SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
-
-        // 2. 获取sqlSession对象
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-
-        // 3.
-        try {
-            Employee employee = sqlSession.selectOne("com.csts.mybatis.conf.EmployeeMapper.selectEmp", 1);
-            System.out.println(employee);
-        } finally {
-            sqlSession.close();
-        }
-    }
 
 
     // 2. 新版本, 接口式

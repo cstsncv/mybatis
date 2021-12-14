@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>mybatis_01_HelloWorld</module>
+        <module>mybatis_02_config</module>
     </modules>
 
 

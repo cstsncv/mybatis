@@ -3,20 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--properties 引入资源 resource:类路径, url:网络路径 -->
+    <properties resource="dbconfig.properties"></properties>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123123asd"/>
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
         <!--sql映射文件注册到全局配置文件中 -->
-        <mapper resource="com/csts/mybatis/conf/EmployeeMapper.xml"/>
+        <mapper resource="EmployeeMapper.xml"/>
     </mappers>
 
 </configuration>
