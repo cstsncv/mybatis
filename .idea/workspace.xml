@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="81163f06-ea73-45a3-9973-9bc5e34d3f57" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$USER_HOME$/mavenRepo" />
+        <option name="mavenHome" value="$USER_HOME$/devtools/apache-maven-3.8.3" />
+        <option name="userSettingsFile" value="$USER_HOME$/devtools/apache-maven-3.8.3/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="22DwhLPpiOf0vDa5BiwI6fsl6IA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mybatis_01_HelloWorld/src/test/java/com/csts/mybatis/bean" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.38045976" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.csts.mybatis.bean" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mybatis_01_HelloWorld/src/test/java/com/csts/mybatis/conf" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mybatis_01_HelloWorld/src/test/java/com/csts/mybatis/bean" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.EmployeeTest.EmployeeTest1">
+    <configuration name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis_01_HelloWorld" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.csts.mybatis.bean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.csts.mybatis.bean" />
+      <option name="MAIN_CLASS_NAME" value="com.csts.mybatis.bean.EmployeeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest.EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis_01_HelloWorld" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.csts.mybatis.bean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.csts.mybatis.bean" />
+      <option name="MAIN_CLASS_NAME" value="com.csts.mybatis.bean.EmployeeTest" />
+      <option name="METHOD_NAME" value="EmployeeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest.EmployeeTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis_01_HelloWorld" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.csts.mybatis.bean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.csts.mybatis.bean" />
+      <option name="MAIN_CLASS_NAME" value="com.csts.mybatis.bean.EmployeeTest" />
+      <option name="METHOD_NAME" value="EmployeeTest1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.EmployeeTest.EmployeeTest1" />
+        <item itemvalue="JUnit.EmployeeTest.EmployeeTest" />
+        <item itemvalue="JUnit.EmployeeTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="81163f06-ea73-45a3-9973-9bc5e34d3f57" name="Default Changelist" comment="" />
+      <created>1639385583871</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639385583871</updated>
+      <workItem from="1639385591204" duration="2276000" />
+      <workItem from="1639449751572" duration="4249000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="723" y="395" key="#Notifications" timestamp="1639385619449">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="723" y="395" key="#Notifications/0.0.1680.1050@0.0.1680.1050" timestamp="1639385619449" />
+    <state x="328" y="106" key="#Project_Structure" timestamp="1639452049866">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="328" y="106" key="#Project_Structure/0.0.1680.1050@0.0.1680.1050" timestamp="1639452049866" />
+    <state x="653" y="216" key="#com.intellij.ide.util.MemberChooser" timestamp="1639386074900">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="653" y="216" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1639386074900" />
+    <state width="1638" height="364" key="GridCell.Tab.0.bottom" timestamp="1639464166141">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="364" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1639464166141" />
+    <state width="1638" height="364" key="GridCell.Tab.0.center" timestamp="1639464166138">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="364" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1639464166138" />
+    <state width="1638" height="364" key="GridCell.Tab.0.left" timestamp="1639464166134">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="364" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1639464166134" />
+    <state width="1638" height="364" key="GridCell.Tab.0.right" timestamp="1639464166140">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="364" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1639464166140" />
+    <state width="1638" height="364" key="GridCell.Tab.1.bottom" timestamp="1639464166145">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="364" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1639464166145" />
+    <state width="1638" height="364" key="GridCell.Tab.1.center" timestamp="1639464166143">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="364" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1639464166143" />
+    <state width="1638" height="364" key="GridCell.Tab.1.left" timestamp="1639464166142">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="364" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1639464166142" />
+    <state width="1638" height="364" key="GridCell.Tab.1.right" timestamp="1639464166144">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="364" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1639464166144" />
+    <state x="341" y="164" key="SettingsEditor" timestamp="1639385791360">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1639385791360" />
+    <state x="606" y="222" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1639449876734">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="606" y="222" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1639449876734" />
+    <state x="208" y="188" key="new project wizard" timestamp="1639385867732">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="208" y="188" key="new project wizard/0.0.1680.1050@0.0.1680.1050" timestamp="1639385867732" />
+  </component>
+</project>
