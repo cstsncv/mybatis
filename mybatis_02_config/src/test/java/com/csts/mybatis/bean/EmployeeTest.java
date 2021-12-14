@@ -1,6 +1,7 @@
 package com.csts.mybatis.bean;
 
 import com.csts.mybatis.dao.EmployeeMapper;
+import com.csts.mybatis.dao.EmployeeMapperAnnotation;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -41,5 +42,25 @@ public class EmployeeTest {
         } finally {
             sqlSession.close();
         }
+    }
+
+
+    // 测试基于注解mapper
+    @Test
+    public void test02() throws IOException {
+        SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            // 获取接口实现类对象,  会为接口自动创建代理对象mapper, 代理对象去执行sql
+            EmployeeMapperAnnotation mapper = sqlSession.getMapper(EmployeeMapperAnnotation.class);
+
+            Employee employeeById = mapper.getEmployeeById(1);
+
+            System.out.println(employeeById);
+        } finally {
+            sqlSession.close();
+        }
+
     }
 }
