@@ -11,6 +11,7 @@
     <modules>
         <module>mybatis_01_HelloWorld</module>
         <module>mybatis_02_config</module>
+        <module>mybatis_03_mapper</module>
     </modules>
 
 

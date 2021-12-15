@@ -1,5 +1,6 @@
 package com.csts.mybatis.bean;
 
+import com.csts.mybatis.bean.Employee;
 import com.csts.mybatis.dao.EmployeeMapper;
 import com.csts.mybatis.dao.EmployeeMapperAnnotation;
 import org.apache.ibatis.io.Resources;
@@ -10,6 +11,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class EmployeeTest {
@@ -61,6 +64,59 @@ public class EmployeeTest {
         } finally {
             sqlSession.close();
         }
+    }
 
+    // 增删改 需要手动提交数据
+    @Test
+    public void test03() throws IOException {
+
+        SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        try {
+            // 获取接口实现类对象,  会为接口自动创建代理对象mapper, 代理对象去执行sql
+            EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
+
+            Employee employee = new Employee(null,"Jerry", "jerry@123.com", "1");
+            Employee employee1 = new Employee(1,"Jerry", "jerry@123.com", "1");
+            // 增加
+            mapper.addEmp(employee);
+
+//            mapper.updateEmp(employee1);
+            System.out.println(employee.getId());
+
+            // 删除
+//            mapper.deleteEmpById(1);
+
+            sqlSession.commit();
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void test04() throws IOException {
+        SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+        try {
+            EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
+
+            // 多参数
+            Employee employee = mapper.getEmployeeByIdAndLastName(9, "jerry");
+
+            // 多参数map传值
+            HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+            stringObjectHashMap.put("id", 8);
+            stringObjectHashMap.put("lastName", "Tom");
+            Employee employee1 = mapper.getEmployeeByMap(stringObjectHashMap);
+//            sqlSession.commit();
+
+            System.out.println(employee+"\n"+employee1);
+        } finally {
+            sqlSession.close();
+        }
     }
 }

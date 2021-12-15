@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csts.mybatis.dao.EmployeeMapper">
+    <!-- 名称空间: 指定接口全类名
+      id: 唯一标识符 指定接口方法
+      resultType: 返回值类型
+      #{id}: 从传递的参数中取出id值
+      -->
+    <select id="getEmployeeById" resultType="com.csts.mybatis.bean.Employee">
+    select * from tb1_employee where id = #{id}
+  </select>
+
+
+    <select id="getEmployeeByIdAndLastName" resultType="com.csts.mybatis.bean.Employee">
+        <!--多个参数指定封装参数的key  -->
+        select * from tb1_employee where id = #{id} and last_name=#{lastName}
+    </select>
+
+<!--    public Employee getEmployeeByMap(Map<String, Object> map);  从map中取值-->
+    <select id="getEmployeeByMap" resultType="com.csts.mybatis.bean.Employee">
+        <!--多个参数指定封装参数的key  -->
+        select * from tb1_employee where id = #{id} and last_name=#{lastName}
+    </select>
+
+    <!--    public void addEmp(Employee employee);
+            parameterType: 可选, 指定参数类型
+            获取自增主键的值:
+            useGeneratedKeys="true": 使用自增主键获取值
+            keyProperty="id": 获取的值赋值给某个属性-->
+    <insert id="addEmp" parameterType="com.csts.mybatis.bean.Employee" useGeneratedKeys="true" keyProperty="id">
+        insert into tb1_employee(last_name,email,gender) values(#{lastName},#{email},#{gender})
+    </insert>
+
+<!--    public void updateEmp(Employee employee);-->
+    <update id="updateEmp">
+        update tb1_employee set last_name=#{lastName},email=#{email},gender=#{gender} where id=#{id}
+    </update>
+
+<!--    public void deleteEmpById(Integer id);-->
+    <delete id="deleteEmpById">
+        delete from tb1_employee where id=#{id}
+    </delete>
+
+</mapper>

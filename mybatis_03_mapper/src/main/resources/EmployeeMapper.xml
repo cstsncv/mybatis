@@ -10,6 +10,6 @@
       -->
     <select id="getEmployeeById" resultType="com.csts.mybatis.bean.Employee">
     <!--别名方式解决字段对应  -->
-    select id,last_name lastName,email,gender from tb1_employee where id = #{id}
+    select * from tb1_employee where id = #{id}
   </select>
 </mapper>
