@@ -12,13 +12,28 @@
     select * from tb1_employee where id = #{id}
   </select>
 
+<!--    public List<Employee> getEmployeesByLastName(String lastName);
+        resultType: 返回集合list, 需要填list中元素类型-->
+    <select id="getEmployeesByLastName" resultType="com.csts.mybatis.bean.Employee">
+        select * from tb1_employee where last_name like #{lastName}
+    </select>
+
+<!--    public Map<String, Object> getEmpByIdReturnMap(Integer id);-->
+    <select id="getEmpByIdReturnMap" resultType="map">
+        select * from tb1_employee where id=#{id}
+    </select>
 
     <select id="getEmployeeByIdAndLastName" resultType="com.csts.mybatis.bean.Employee">
         <!--多个参数指定封装参数的key  -->
         select * from tb1_employee where id = #{id} and last_name=#{lastName}
     </select>
 
-<!--    public Employee getEmployeeByMap(Map<String, Object> map);  从map中取值-->
+<!--    public Map<Integer, Employee> getEmpsByLastNameReturnMap(String lastName);-->
+    <select id="getEmpsByLastNameReturnMap" resultType="com.csts.mybatis.bean.Employee">
+        select * from tb1_employee where last_name like #{lastName}
+    </select>
+
+    <!--    public Employee getEmployeeByMap(Map<String, Object> map);  从map中取值-->
     <select id="getEmployeeByMap" resultType="com.csts.mybatis.bean.Employee">
         <!--多个参数指定封装参数的key  -->
         select * from tb1_employee where id = #{id} and last_name=#{lastName}

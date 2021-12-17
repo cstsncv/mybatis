@@ -3,6 +3,7 @@ package com.csts.mybatis.bean;
 import com.csts.mybatis.bean.Employee;
 import com.csts.mybatis.dao.EmployeeMapper;
 import com.csts.mybatis.dao.EmployeeMapperAnnotation;
+import com.csts.mybatis.dao.EmployeeMapperPlus;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,6 +13,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -105,18 +107,47 @@ public class EmployeeTest {
             EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
 
             // 多参数
-            Employee employee = mapper.getEmployeeByIdAndLastName(9, "jerry");
+//            Employee employee = mapper.getEmployeeByIdAndLastName(9, "jerry");
 
             // 多参数map传值
-            HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-            stringObjectHashMap.put("id", 8);
-            stringObjectHashMap.put("lastName", "Tom");
-            Employee employee1 = mapper.getEmployeeByMap(stringObjectHashMap);
-//            sqlSession.commit();
+//            HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+//            stringObjectHashMap.put("id", 8);
+//            stringObjectHashMap.put("lastName", "Tom");
+//            Employee employee1 = mapper.getEmployeeByMap(stringObjectHashMap);
+////            sqlSession.commit();
+//
+//            System.out.println(employee+"\n"+employee1);
 
-            System.out.println(employee+"\n"+employee1);
+//            List<Employee> employees = mapper.getEmployeesByLastName("je%");
+//            for (Employee employee: employees) {
+//                System.out.println(employee);
+//            }
+
+//            Map<String, Object> returnMap = mapper.getEmpByIdReturnMap(9);
+//            System.out.println(returnMap);
+
+            Map<Integer, Employee> empsByLastNameReturnMap = mapper.getEmpsByLastNameReturnMap("%e%");
+            System.out.println(empsByLastNameReturnMap);
+
         } finally {
             sqlSession.close();
         }
+    }
+
+
+    @Test
+    public void test() throws IOException {
+        SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+        try {
+            EmployeeMapperPlus mapper = sqlSession.getMapper(EmployeeMapperPlus.class);
+            Employee emp = mapper.getEmpById(9);
+            System.out.println(emp);
+        } finally {
+            sqlSession.close();
+        }
+
     }
 }
