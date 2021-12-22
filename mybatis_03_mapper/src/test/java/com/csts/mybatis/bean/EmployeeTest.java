@@ -1,6 +1,7 @@
 package com.csts.mybatis.bean;
 
 import com.csts.mybatis.bean.Employee;
+import com.csts.mybatis.dao.DepartmentMapper;
 import com.csts.mybatis.dao.EmployeeMapper;
 import com.csts.mybatis.dao.EmployeeMapperAnnotation;
 import com.csts.mybatis.dao.EmployeeMapperPlus;
@@ -80,8 +81,8 @@ public class EmployeeTest {
             // 获取接口实现类对象,  会为接口自动创建代理对象mapper, 代理对象去执行sql
             EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
 
-            Employee employee = new Employee(null,"Jerry", "jerry@123.com", "1");
-            Employee employee1 = new Employee(1,"Jerry", "jerry@123.com", "1");
+            Employee employee = new Employee(null,"Jerry", "jerry@123.com", "1", null);
+            Employee employee1 = new Employee(1,"Jerry", "jerry@123.com", "1", null);
             // 增加
             mapper.addEmp(employee);
 
@@ -142,9 +143,17 @@ public class EmployeeTest {
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
         try {
-            EmployeeMapperPlus mapper = sqlSession.getMapper(EmployeeMapperPlus.class);
-            Employee emp = mapper.getEmpById(9);
-            System.out.println(emp);
+//            EmployeeMapperPlus mapper = sqlSession.getMapper(EmployeeMapperPlus.class);
+//            Employee emp = mapper.getEmpById(9);
+
+//            DepartmentMapper departmentMapper = sqlSession.getMapper(DepartmentMapper.class);
+//
+//            Department dept = departmentMapper.getDeptById(1);
+
+            EmployeeMapperPlus employeeMapperPlus = sqlSession.getMapper(EmployeeMapperPlus.class);
+            Employee mapperPlusEmpByIdStep = employeeMapperPlus.getEmpByIdStep(1);
+
+            System.out.println(mapperPlusEmpByIdStep);
         } finally {
             sqlSession.close();
         }

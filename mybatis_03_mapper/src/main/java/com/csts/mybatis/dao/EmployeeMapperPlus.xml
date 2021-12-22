@@ -21,4 +21,22 @@
     <select id="getEmpById" resultMap="MyEmployee" >
         select * from tb1_employee where id=#{id}
     </select>
+
+    
+    
+    
+<!--    public Employee getEmpByIdStep(Integer id);-->
+    <resultMap id="MyEmpByStep" type="com.csts.mybatis.bean.Employee">
+        <id column="id" property="id"/>
+        <result column="last_name" property="lastName"/>
+        <result column="gender" property="gender"/>
+        <result column="email" property="email"/>
+<!--        association 分布查询, 定义关联对象的封装规则(可以使用延迟加载)-->
+        <association property="dept" select="com.csts.mybatis.dao.DepartmentMapper.getDeptById" column="d_id">
+
+        </association>
+    </resultMap>
+    <select id="getEmpByIdStep" resultMap="MyEmpByStep">
+        select * from tb1_employee where id=#{id}
+    </select>
 </mapper>
