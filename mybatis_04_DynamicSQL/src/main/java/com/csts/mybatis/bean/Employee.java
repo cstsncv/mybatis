@@ -13,6 +13,6 @@ public class Employee {
     private Integer id;
     private String lastName;
     private String email;
-    private String gender;
+    private Integer gender;
     private Department dept;
 }

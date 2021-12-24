@@ -30,8 +30,8 @@ public class EmployeeTest {
 
         try {
             EmployeeMapperDynamicSQL mapper = sqlSession.getMapper(EmployeeMapperDynamicSQL.class);
-            Employee employee = new Employee(9, "%e%", "", "0", null);
-            List<Employee> empsByConditionIf = mapper.getEmpsByConditionIf(employee);
+            Employee employee = new Employee(null, "%e%", "", null, null);
+            List<Employee> empsByConditionIf = mapper.getEmpsByConditionTrim(employee);
             System.out.println(empsByConditionIf);
 
         } finally {

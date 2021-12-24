@@ -14,25 +14,59 @@
 
 <!--    public List<Employee> getEmpsByConditionIf(Employee employee);-->
     <select id="getEmpsByConditionIf" resultType="com.csts.mybatis.bean.Employee" >
-        select * from tb1_employee where
+        select * from tb1_employee
         <!-- test: 判断表达式(OGNL)
          从参数中取值进行判断
          特殊符号需用转义字符:  " ==> &quot; & ==> &amp;
         -->
-        <if test="id!=null">
-            id=#{id}
-        </if>
-        <!--  -->
-        <if test="lastName!=null and lastName!=&quot;&quot;">
-            and last_name like #{lastName}
-        </if>
+        <!--使用where标签解决and拼装, and 需写在前面 -->
+        <where>
 
-        <if test="email!=null &amp;&amp; email.trim()!=&quot;&quot;">
-            and email=#{email}
-        </if>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <!--  -->
+            <if test="lastName!=null and lastName!=&quot;&quot;">
+                and last_name like #{lastName}
+            </if>
 
-        <if test="gender==0 or gender==1">
-            and gender=#{gender}
-        </if>
+            <if test="email!=null &amp;&amp; email.trim()!=&quot;&quot;">
+                and email=#{email}
+            </if>
+
+            <if test="gender==0 or gender==1">
+                and gender=#{gender}
+            </if>
+        </where>
+    </select>
+
+
+
+<!--    public List<Employee> getEmpsByConditionTrim(Employee employee);-->
+    <select id="getEmpsByConditionTrim" resultType="com.csts.mybatis.bean.Employee" >
+        select * from tb1_employee
+        <!-- test: 判断表达式(OGNL)
+         从参数中取值进行判断
+         特殊符号需用转义字符:  " ==> &quot; & ==> &amp;
+        -->
+        <!--使用where标签解决and拼装, and 需写在前面 -->
+        <where>
+
+            <if test="id!=null">
+                id=#{id} and
+            </if>
+            <!--  -->
+            <if test="lastName!=null and lastName!=&quot;&quot;">
+                last_name like #{lastName} and
+            </if>
+
+            <if test="email!=null &amp;&amp; email.trim()!=&quot;&quot;">
+                email=#{email} and
+            </if>
+
+            <if test="gender==0 or gender==1">
+                gender=#{gender}
+            </if>
+        </where>
     </select>
 </mapper>
