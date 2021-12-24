@@ -33,4 +33,6 @@ public interface EmployeeMapper {
     public void updateEmp(Employee employee);
 
     public void deleteEmpById(Integer id);
+
+    public List<Employee> getEmpsByDeptId(Integer deptId);
 }

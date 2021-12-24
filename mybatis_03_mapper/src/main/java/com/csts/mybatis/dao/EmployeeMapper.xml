@@ -58,4 +58,19 @@
         delete from tb1_employee where id=#{id}
     </delete>
 
+<!--    public void getEmpsByDeptId(Integer id);-->
+    <resultMap id="deptId" type="com.csts.mybatis.bean.Employee">
+        <id column="id" property="id"/>
+        <result column="last_name" property="lastName"/>
+        <result column="gender" property="gender"/>
+        <result column="email" property="email"/>
+        <association property="dept" select="com.csts.mybatis.dao.DepartmentMapper.getDeptById" column="d_id">
+            <id column="id" property="id"/>
+            <result column="dept_name" property="deptName"/>
+        </association>
+    </resultMap>
+    <select id="getEmpsByDeptId" resultMap="deptId">
+        select * from tb1_employee where d_id=#{deptId}
+    </select>
+
 </mapper>

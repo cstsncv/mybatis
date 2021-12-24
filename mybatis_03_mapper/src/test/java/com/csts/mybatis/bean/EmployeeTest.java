@@ -127,8 +127,11 @@ public class EmployeeTest {
 //            Map<String, Object> returnMap = mapper.getEmpByIdReturnMap(9);
 //            System.out.println(returnMap);
 
-            Map<Integer, Employee> empsByLastNameReturnMap = mapper.getEmpsByLastNameReturnMap("%e%");
-            System.out.println(empsByLastNameReturnMap);
+//            Map<Integer, Employee> empsByLastNameReturnMap = mapper.getEmpsByLastNameReturnMap("%e%");
+//            System.out.println(empsByLastNameReturnMap);
+
+            List<Employee> empByDeptId = mapper.getEmpsByDeptId(1);
+            System.out.println(empByDeptId);
 
         } finally {
             sqlSession.close();
@@ -157,6 +160,28 @@ public class EmployeeTest {
         } finally {
             sqlSession.close();
         }
+    }
 
+
+    @Test
+    public void test05() throws IOException {
+        SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+        try {
+//            EmployeeMapperPlus mapper = sqlSession.getMapper(EmployeeMapperPlus.class);
+//            Employee emp = mapper.getEmpById(9);
+
+//            DepartmentMapper departmentMapper = sqlSession.getMapper(DepartmentMapper.class);
+//
+//            Department dept = departmentMapper.getDeptById(1);
+
+            DepartmentMapper mapper = sqlSession.getMapper(DepartmentMapper.class);
+            Department deptById = mapper.getDeptByIdPlus(1);
+            System.out.println(deptById);
+        } finally {
+            sqlSession.close();
+        }
     }
 }
