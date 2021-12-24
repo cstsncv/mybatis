@@ -178,7 +178,7 @@ public class EmployeeTest {
 //            Department dept = departmentMapper.getDeptById(1);
 
             DepartmentMapper mapper = sqlSession.getMapper(DepartmentMapper.class);
-            Department deptById = mapper.getDeptByIdPlus(1);
+            Department deptById = mapper.getDeptByIdPlus(2);
             System.out.println(deptById);
         } finally {
             sqlSession.close();
