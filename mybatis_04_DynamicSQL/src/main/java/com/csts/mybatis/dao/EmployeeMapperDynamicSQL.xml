@@ -45,12 +45,13 @@
 <!--    public List<Employee> getEmpsByConditionTrim(Employee employee);-->
     <select id="getEmpsByConditionTrim" resultType="com.csts.mybatis.bean.Employee" >
         select * from tb1_employee
-        <!-- test: 判断表达式(OGNL)
-         从参数中取值进行判断
-         特殊符号需用转义字符:  " ==> &quot; & ==> &amp;
+        <!--后面的and和or, where标签不能解决  trim 自定义字符串截取规则
+            prefix: 给拼接后的字符串前面加 前缀
+            prefixOverdides: 前缀覆盖, 去掉字符串前面多于的字符
+            suffix: 加后缀
+            suffixOverrides: 后缀覆盖, 去掉字符串后面多于的字符
         -->
-        <!--使用where标签解决and拼装, and 需写在前面 -->
-        <where>
+        <trim prefix="where" suffixOverrides="and">
 
             <if test="id!=null">
                 id=#{id} and
@@ -67,6 +68,82 @@
             <if test="gender==0 or gender==1">
                 gender=#{gender}
             </if>
-        </where>
+        </trim>
     </select>
+
+
+<!--    public void updateEmp(Employee employee);-->
+    <update id="updateEmp">
+        update tb1_employee
+        <!-- set标签 -->
+<!--        <set>-->
+<!--            <if test="lastName!=null">-->
+<!--                last_name=#{lastName},-->
+<!--            </if>-->
+<!--            <if test="email!=null">-->
+<!--                email=#{email},-->
+<!--            </if>-->
+<!--            <if test="gender!=null">-->
+<!--                gender=#{gender}-->
+<!--            </if>-->
+<!--        </set>-->
+
+        <!-- trim 标签 -->
+        <trim prefix="set" suffixOverrides=",">
+            <if test="lastName!=null">
+                last_name=#{lastName},
+            </if>
+            <if test="email!=null">
+                email=#{email},
+            </if>
+            <if test="gender!=null">
+                gender=#{gender}
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+
+
+<!--    public List<Employee> getEmpsByConditionForeach(@Param("ids") List<Integer> list);-->
+    <select id="getEmpsByConditionForeach" resultType="com.csts.mybatis.bean.Employee">
+        <!-- select * from tb1_employee where id in(1,2,3) -->
+        select * from tb1_employee where id in
+        <!--  foreach:
+            collection: 指定要遍历的集合
+            list类型的参数会做特殊处理封装在map中, map的key就叫list
+            item: 将当前遍历出的元素的值给指定的变量
+            separator: 元素分隔符
+            open: 遍历出所有结果拼接出开始的字符
+            close: 遍历出所有结果拼接出结束的字符
+            index: 遍历list时候, index是索引 item是值
+                    遍历map时, index是map的key, item是map的值
+
+            #{变量名}取出变量的值, 也就是当前遍历出的元素
+          -->
+
+        <foreach collection="ids" item="item_id" separator="," open="(" close=")">
+            #{item_id}
+        </foreach>
+    </select>
+
+<!--    批量保存-->
+<!--    public void addEmps(@Param("emps") List<Employee> list);
+        MYSQL下批量保存: 可以foreach遍历, mysql支持value(),(),()语法-->
+    <insert id="addEmps">
+        insert into tb1_employee(last_name,email,gender,d_id)
+        values
+        <foreach collection="emps" item="emp" separator=",">
+            (#{emp.lastName},#{emp.email},#{emp.gender},#{emp.dept.id})
+        </foreach>
+    </insert>
+
+    <!-- 这种方式需要数据库连接属性allowMultiQueries=true 在dbconfig.properties中加 jdbc.url=jdbc:mysql://localhost:3306/mybatis?allowMultiQueries=true；
+    这种分号分隔多个sql可以用于其他的批量操作（删除，修改） -->
+<!--    <insert id="addEmps">-->
+<!--        <foreach collection="emps" item="emp" separator=";">-->
+<!--            insert into tb1_employee(last_name,email,gender,d_id)-->
+<!--            values(#{emp.lastName},#{emp.email},#{emp.gender},#{emp.dept.id})-->
+<!--        </foreach>-->
+<!--    </insert>-->
+
 </mapper>
